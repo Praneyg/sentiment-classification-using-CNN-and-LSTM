@@ -1,8 +1,9 @@
 Introduction:
-
 Implemented the sentiment classification using custom built Convolutional Neural
 Network and Long Short-Term Memory models for the yelp restaurant review
 dataset using word2vec embeddings.
+
+
 Data preprocessing:
 To convert data in a form that can be easily read by the python code we load the
 dataset in JSON format and convert it to a Pandas data frame and export the first
@@ -14,13 +15,17 @@ train and test our models by selecting the top 10000 sentiments of each category
 which are defined based on the stars of each one of them. For the selected
 dataset we preprocess it by removing stop words as they don’t add any meaning
 to the text for model training.
+
 Once the stop words are removed, we proceed to tokenization to split the text
 into array of words which gives advantage for transforming each word separately.
 Stemming is performed to reduce the number of words to its root word.
 After the preprocessing is completed, we divide the dataset into the train set and
 test set using the train test function ().
+
 Helper functions:
-• make_word2vec_modelThis function creates a Word2Vec model from a dataset of text which takes
+
+• make_word2vec_model: 
+This function creates a Word2Vec model from a dataset of text which takes
 various parameters such as size of the vectors, minimum count of a word, and
 size of the window to determine no of words to be included in each context. The
 function also allows for the option of adding padding tokens to the text data to
@@ -39,13 +44,19 @@ for each window size. After the pooling operation, the results of each
 convolutional layer are concatenated together and passed through a fully
 connected layer to produce the final output and passing it through softmax
 function for generating probabilities.
+
+
 Implementation of LSTM model:
+
 The LstmTextClassifier defines embedding layer to convert text into vectors, LSTM
 layer to extract relevant features, and a fully connected layer for classifying.
 Like the implementation of forward method of CNN model, we process the text
 data through embedding layers whose output is processed through LSTM layer.
 The output of LSTM layer is processed through fully connected layer to classify
 the text data.
+
+
 Results/Findings:
+
 As we increase the number of epochs, the loss in the classification of the text data
 is decreased.
